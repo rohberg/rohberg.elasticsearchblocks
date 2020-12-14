@@ -17,12 +17,12 @@ class IElasticSearchBlocksMarker(Interface):
 
 @provider(IFormFieldProvider)
 class IElasticSearchBlocks(model.Schema):
-    """
+    """ 
     """
 
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
+    # TODO hide field blocks_plaintext
+    blocks_plaintext = schema.TextLine(
+        title=_(u'Blocks content in plain text'),
         required=False,
     )
 
@@ -34,11 +34,12 @@ class ElasticSearchBlocks(object):
         self.context = context
 
     @property
-    def project(self):
-        if safe_hasattr(self.context, 'project'):
-            return self.context.project
+    # TODO getter should return the extract of blocks field. see indexer
+    def blocks_plaintext(self):
+        if safe_hasattr(self.context, 'blocks_plaintext'):
+            return self.context.blocks_plaintext
         return None
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    @blocks_plaintext.setter
+    def blocks_plaintext(self, value):
+        self.context.blocks_plaintext = value
