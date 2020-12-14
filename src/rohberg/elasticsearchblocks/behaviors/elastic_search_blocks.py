@@ -21,10 +21,13 @@ class IElasticSearchBlocks(model.Schema):
     """
 
     # TODO hide field blocks_plaintext
-    blocks_plaintext = schema.TextLine(
+    blocks_plaintext = schema.Tuple(
         title=_(u'Blocks content in plain text'),
         required=False,
-    )
+        value_type=schema.TextLine(),
+        default=(),
+        missing_value=(),
+        )
 
 
 @implementer(IElasticSearchBlocks)
