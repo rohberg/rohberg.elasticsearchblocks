@@ -1,0 +1,6 @@
+[report]
+include =
+    src/rohberg/*
+omit =
+    */test*
+    */upgrades/*
