@@ -18,23 +18,6 @@ import six
 
 import pprint
 
-def _extract_text(block):
-    print("** _extract_text block", block)
-    result = ""
-    try:
-        for paragraph in block.get("text").get("blocks"):
-            text = paragraph["text"]
-            if six.PY2:
-                if isinstance(text, six.text_type):
-                    text = text.encode("utf-8", "replace")
-                if text:
-                    result = " ".join((result, text))
-            else:
-                result = " ".join((result, text))
-    except Exception as e:
-        print("Exception: ", e)
-    return result
-
 
 class IElasticSearchBlocksMarker(Interface):
     pass
@@ -53,6 +36,40 @@ class IElasticSearchBlocks(model.Schema):
         )
 
 
+def _extract_text(block):
+    result = ""
+    # # DraftJS
+    # for paragraph in block.get("text",{}).get("blocks",[]):
+    #     text = paragraph["text"]
+    #     if six.PY2:
+    #         if isinstance(text, six.text_type):
+    #             text = text.encode("utf-8", "replace")
+    #         if text:
+    #             result = " ".join((result, text))
+    #     else:
+    #         result = " ".join((result, text))
+    # Slate
+    if block.get("plaintext",""):
+        result = block.get("plaintext")
+    elif block["@type"]=="columnsBlock":
+        columns = block["data"]["blocks"]
+        result = "  ".join(
+            [
+                getBlocksText(columns[clm]['blocks']) 
+                for clm in columns
+            ])
+    return result
+
+def getBlocksText(blocks):
+    blocks_text = [
+        _extract_text(blocks[block_uid])
+        for block_uid in blocks
+        if blocks[block_uid].get("@type", "") in ["slate", "columnsBlock"]
+    ]
+    text = "  ".join(blocks_text)
+    
+    return text
+    
 @implementer(IElasticSearchBlocks)
 @adapter(IElasticSearchBlocksMarker)
 class ElasticSearchBlocks(object):
@@ -62,24 +79,9 @@ class ElasticSearchBlocks(object):
     @property
     # TODO getter should return the extract of blocks field. still todo: slate blocks
     def blocks_plaintext(self):
-        # if safe_hasattr(self.context, 'blocks_plaintext'):
-        #     return self.context.blocks_plaintext
-        # return None
-
-        context = self.context
-        # std_text = SearchableText(obj)
-        myblocks = context.blocks
-        # print('** blocks_plaintext: blocks')
-        # pprint.pprint(myblocks)
-        # import pdb; pdb.set_trace()
-        blocks_text = [
-            _extract_text(myblocks[block_uid])
-            for block_uid in myblocks
-            if myblocks[block_uid].get("@type", "") == "text"
-        ]
-        # blocks_text.append(std_text)
-        print('*** blocks_plaintext: blocks_text', blocks_text)
-        text = " ".join(blocks_text)
+        text = getBlocksText(self.context.blocks)
+        print("\n\n*** blocks_plaintext of ", self.context)
+        print(text)
         return text
 
     @blocks_plaintext.setter
