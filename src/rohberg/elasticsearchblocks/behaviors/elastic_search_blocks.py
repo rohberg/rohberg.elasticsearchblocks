@@ -2,6 +2,7 @@
 
 from rohberg.elasticsearchblocks import _
 from plone import schema
+from plone.autoform import directives
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from Products.CMFPlone.utils import safe_hasattr
@@ -28,7 +29,7 @@ class IElasticSearchBlocks(model.Schema):
     """ 
     """
 
-    # TODO hide field blocks_plaintext
+    directives.read_permission(blocks_plaintext='cmf.ManagePortal')
     blocks_plaintext = schema.TextLine(
         title=_(u'Blocks content in plain text'),
         required=False,
