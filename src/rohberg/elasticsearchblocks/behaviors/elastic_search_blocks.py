@@ -33,7 +33,7 @@ class IElasticSearchBlocks(model.Schema):
     blocks_plaintext = schema.TextLine(
         title=_(u'Blocks content in plain text'),
         required=False,
-        default=None
+        default=""
         )
 
 
