@@ -78,7 +78,6 @@ class ElasticSearchBlocks(object):
         self.context = context
 
     @property
-    # TODO getter should return the extract of blocks field. still todo: slate blocks
     def blocks_plaintext(self):
         text = getBlocksText(self.context.blocks)
         print("\n\n*** blocks_plaintext of ", self.context)
