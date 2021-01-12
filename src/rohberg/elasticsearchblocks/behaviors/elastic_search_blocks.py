@@ -80,8 +80,8 @@ class ElasticSearchBlocks(object):
     @property
     def blocks_plaintext(self):
         text = getBlocksText(self.context.blocks)
-        print("\n\n*** blocks_plaintext of ", self.context)
-        print(text)
+        # print("\n\n*** blocks_plaintext of ", self.context)
+        # print(text)
         return text
 
     @blocks_plaintext.setter
