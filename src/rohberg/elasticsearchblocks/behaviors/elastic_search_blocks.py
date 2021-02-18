@@ -30,6 +30,7 @@ class IElasticSearchBlocks(model.Schema):
     """
 
     directives.read_permission(blocks_plaintext='cmf.ManagePortal')
+    directives.write_permission(blocks_plaintext='cmf.ManagePortal')
     blocks_plaintext = schema.TextLine(
         title=_(u'Blocks content in plain text'),
         required=False,
