@@ -12,11 +12,6 @@ from zope.interface import implementer
 from zope.interface import provider
 
 
-from plone.restapi.behaviors import IBlocks
-from plone.indexer.decorator import indexer
-from plone.app.contenttypes.indexers import SearchableText
-
-
 BLOCK_TYPES = ["slate", "columnsBlock"]
 
 
@@ -50,6 +45,7 @@ def _extract_text(block):
     #             result = " ".join((result, text))
     #     else:
     #         result = " ".join((result, text))
+    
     # Slate
     if block.get("plaintext", ""):
         result = block.get("plaintext")
@@ -82,8 +78,6 @@ class ElasticSearchBlocks(object):
     @property
     def blocks_plaintext(self):
         text = getBlocksText(self.context.blocks)
-        # print("\n\n*** blocks_plaintext of ", self.context)
-        # print(text)
         return text
 
     @blocks_plaintext.setter
