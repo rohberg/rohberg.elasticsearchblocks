@@ -15,9 +15,6 @@ from zope.interface import provider
 from plone.restapi.behaviors import IBlocks
 from plone.indexer.decorator import indexer
 from plone.app.contenttypes.indexers import SearchableText
-import six
-
-import pprint
 
 
 class IElasticSearchBlocksMarker(Interface):
@@ -26,7 +23,7 @@ class IElasticSearchBlocksMarker(Interface):
 
 @provider(IFormFieldProvider)
 class IElasticSearchBlocks(model.Schema):
-    """ 
+    """
     """
 
     directives.read_permission(blocks_plaintext='cmf.ManagePortal')
@@ -35,7 +32,7 @@ class IElasticSearchBlocks(model.Schema):
         title=_(u'Blocks content in plain text'),
         required=False,
         default=""
-        )
+    )
 
 
 def _extract_text(block):
@@ -51,9 +48,9 @@ def _extract_text(block):
     #     else:
     #         result = " ".join((result, text))
     # Slate
-    if block.get("plaintext",""):
+    if block.get("plaintext", ""):
         result = block.get("plaintext")
-    elif block["@type"]=="columnsBlock":
+    elif block["@type"] == "columnsBlock":
         columns = block["data"]["blocks"]
         result = "  ".join(
             [
@@ -62,6 +59,7 @@ def _extract_text(block):
             ])
     return result
 
+
 def getBlocksText(blocks):
     blocks_text = [
         _extract_text(blocks[block_uid])
@@ -69,9 +67,9 @@ def getBlocksText(blocks):
         if blocks[block_uid].get("@type", "") in ["slate", "columnsBlock"]
     ]
     text = "  ".join(blocks_text)
-    
     return text
-    
+
+
 @implementer(IElasticSearchBlocks)
 @adapter(IElasticSearchBlocksMarker)
 class ElasticSearchBlocks(object):
@@ -88,6 +86,3 @@ class ElasticSearchBlocks(object):
     @blocks_plaintext.setter
     def blocks_plaintext(self, value):
         self.context.blocks_plaintext = value
-
-
-
