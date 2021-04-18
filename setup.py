@@ -15,7 +15,7 @@ long_description = '\n\n'.join([
 setup(
     name='rohberg.elasticsearchblocks',
     version='1.0a1',
-    description="Make Volto blocks searchable in ElasticSearch",
+    description="Make Volto blocks indexable with ElasticSearch",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
     classifiers=[
@@ -32,11 +32,11 @@ setup(
     keywords='Python Plone CMS',
     author='Katja Süss',
     author_email='k.suess@rohberg.ch',
-    url='https://github.com/collective/rohberg.elasticsearchblocks',
+    url='https://github.com/rohberg/rohberg.elasticsearchblocks',
     project_urls={
         'PyPI': 'https://pypi.python.org/pypi/rohberg.elasticsearchblocks',
-        'Source': 'https://github.com/collective/rohberg.elasticsearchblocks',
-        'Tracker': 'https://github.com/collective/rohberg.elasticsearchblocks/issues',
+        'Source': 'https://github.com/rohberg/rohberg.elasticsearchblocks',
+        'Tracker': 'https://github.com/rohberg/rohberg.elasticsearchblocks/issues',
         # 'Documentation': 'https://rohberg.elasticsearchblocks.readthedocs.io/en/latest/',
     },
     license='GPL version 2',
@@ -45,7 +45,7 @@ setup(
     package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False,
-    python_requires="==2.7, >=3.6",
+    python_requires=">=3.8",
     install_requires=[
         'setuptools',
         # -*- Extra requirements: -*-
