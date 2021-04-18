@@ -3,7 +3,7 @@
 rohberg.elasticsearchblocks
 ===========================
 
-Eexposes field *plaintext* for indexing block text with ElasticSearch.
+Exposes field *plaintext* for indexing block text with ElasticSearch.
 
 BLOCK_TYPES = ["slate", "columnsBlock"]
 
@@ -21,7 +21,9 @@ Install rohberg.elasticsearchblocks by adding it to your buildout::
         rohberg.elasticsearchblocks
 
 
-and then running ``bin/buildout``
+Run
+
+    bin/buildout
 
 
 Contribute / Support
