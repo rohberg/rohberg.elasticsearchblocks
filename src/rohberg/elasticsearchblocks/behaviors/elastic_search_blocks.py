@@ -17,6 +17,9 @@ from plone.indexer.decorator import indexer
 from plone.app.contenttypes.indexers import SearchableText
 
 
+BLOCK_TYPES = ["slate", "columnsBlock"]
+
+
 class IElasticSearchBlocksMarker(Interface):
     pass
 
@@ -54,19 +57,19 @@ def _extract_text(block):
         columns = block["data"]["blocks"]
         result = "  ".join(
             [
-                getBlocksText(columns[clm]['blocks']) 
+                getBlocksText(columns[clm]['blocks'])
                 for clm in columns
             ])
     return result
 
 
 def getBlocksText(blocks):
-    blocks_text = [
+    blocks_text_list = [
         _extract_text(blocks[block_uid])
         for block_uid in blocks
-        if blocks[block_uid].get("@type", "") in ["slate", "columnsBlock"]
+        if blocks[block_uid].get("@type", "") in BLOCK_TYPES
     ]
-    text = "  ".join(blocks_text)
+    text = "  ".join(blocks_text_list)
     return text
 
 
