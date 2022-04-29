@@ -5,6 +5,7 @@
 *.py?
 *.swp
 *.csv
+*.txt
 # dirs
 # bin/
 buildout-cache/
