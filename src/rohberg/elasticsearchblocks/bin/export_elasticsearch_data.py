@@ -3,17 +3,14 @@
 Run with
 python /Users/katjasuss/Plone/igib/deployigib/work/zope/src/rohberg.elasticsearchblocks/src/rohberg/elasticsearchblocks/bin/export_elesticsearch_data.py
 """
-from datetime import datetime
 import time
 
 esindex = 'plone2020'
+columns_to_be_exported = ["portal_type", "title", "blocks_plaintext", "manualfile__extracted"]
 es_export_file = 'export_elasticsearch_data.csv'
 
 
 def main():
-    now = datetime.now()
-    timestamp = now.strftime('%Y%m%d%H%M%S')
-    # print(timestamp)
     start_time = time.time()
 
     try:
@@ -22,8 +19,6 @@ def main():
 
         # import Pandas, JSON, and the NumPy library
         import pandas
-        import json
-        import numpy as np
 
     except ImportError as error:
         print("\nImportError:", error)
@@ -88,7 +83,7 @@ def main():
     docs.to_csv(
         es_export_file,
         ",",
-        columns=["portal_type", "title", "blocks_plaintext", "manualfile__extracted"]
+        columns=columns_to_be_exported
     )  # CSV delimited by commas
 
     print("\n\ntime elapsed:", time.time() - start_time)
