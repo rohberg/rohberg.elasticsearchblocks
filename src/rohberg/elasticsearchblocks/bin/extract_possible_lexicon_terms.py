@@ -17,10 +17,10 @@ def main():
         data = inputfile.read()
         # print(data[:300])
         words = re.findall(regexp, data)
-        print("set(words)", set(words))
-        print("words", words)
+        print(f"{len(set(words))} gefundene Wörter")
         with open(possible_lexicon_terms_file, 'w') as exportfile:
-            for word in set(words):
+            for word in sorted(set(words)):
+                # print(word)
                 exportfile.write(f"{word}\n")
 
 
