@@ -87,7 +87,7 @@ def main():
     docs.to_csv(
         f"export_elasticsearch_data_{timestamp}.csv",
         ",",
-        columns=["portal_type", "blocks_plaintext", "manualfile__extracted"]
+        columns=["portal_type", "title", "blocks_plaintext", "manualfile__extracted"]
     )  # CSV delimited by commas
 
     print("\n\ntime elapsed:", time.time() - start_time)
