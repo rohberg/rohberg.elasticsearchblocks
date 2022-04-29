@@ -84,7 +84,7 @@ def main():
     # docs.to_json("objectrocket.json")
 
     # export Elasticsearch documents to a CSV file
-    docs.to_csv(f"objectrocket_{timestamp}.csv", ",", columns=["blocks_plaintext", "manualfile__extracted"])  # CSV delimited by commas
+    docs.to_csv(f"export_elasticsearch_data_{timestamp}.csv", ",", columns=["blocks_plaintext", "manualfile__extracted"])  # CSV delimited by commas
 
     print("\n\ntime elapsed:", time.time() - start_time)
 
