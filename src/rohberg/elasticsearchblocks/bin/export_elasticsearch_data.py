@@ -7,6 +7,7 @@ from datetime import datetime
 import time
 
 esindex = 'plone2020'
+es_export_file = 'export_elasticsearch_data.csv'
 
 
 def main():
@@ -85,7 +86,7 @@ def main():
 
     # export Elasticsearch documents to a CSV file
     docs.to_csv(
-        f"export_elasticsearch_data_{timestamp}.csv",
+        es_export_file,
         ",",
         columns=["portal_type", "title", "blocks_plaintext", "manualfile__extracted"]
     )  # CSV delimited by commas
