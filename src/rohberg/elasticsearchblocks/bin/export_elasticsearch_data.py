@@ -22,7 +22,7 @@ def main():
 
     except ImportError as error:
         print("\nImportError:", error)
-        print("Please use 'pip3' to install the necessary packages.")
+        print("Please use 'pip' to install the necessary packages.")
         quit()
 
     # create a client instance of the library
@@ -36,7 +36,7 @@ def main():
     """
     # total num of Elasticsearch documents to get with API call
     total_docs = 20
-    print("\nmaking API call to Elasticsearch for", total_docs, "documents.")
+    print("\nMake API call to Elasticsearch for", total_docs, "documents.")
     response = elastic_client.search(
         index=esindex,
         body={},
@@ -44,7 +44,7 @@ def main():
     )
 
     # grab list of docs from nested dictionary response
-    print("putting documents in a list")
+    print("Put documents in a list.")
     elastic_docs = response["hits"]["hits"]
 
     """
@@ -55,7 +55,7 @@ def main():
     docs = pandas.DataFrame()
 
     # iterate each Elasticsearch doc in list
-    print("\ncreating objects from Elasticsearch data.")
+    print("\nCreate objects from Elasticsearch data.")
     for num, doc in enumerate(elastic_docs):
 
         # get _source data dict from document
@@ -74,10 +74,6 @@ def main():
     EXPORT THE ELASTICSEARCH DOCUMENTS PUT INTO
     PANDAS OBJECTS
     """
-    print("\nexporting Pandas objects to different file types.")
-
-    # export the Elasticsearch documents as a JSON file
-    # docs.to_json("objectrocket.json")
 
     # export Elasticsearch documents to a CSV file
     docs.to_csv(
@@ -86,7 +82,7 @@ def main():
         columns=columns_to_be_exported
     )  # CSV delimited by commas
 
-    print("\n\ntime elapsed:", time.time() - start_time)
+    print("\n\nTime elapsed:", time.time() - start_time)
 
 
 if __name__ == "__main__":
