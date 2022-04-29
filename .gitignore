@@ -4,6 +4,7 @@
 *.mo
 *.py?
 *.swp
+*.csv
 # dirs
 # bin/
 buildout-cache/
