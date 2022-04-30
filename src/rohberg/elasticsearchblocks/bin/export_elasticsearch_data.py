@@ -5,8 +5,13 @@ python /Users/katjasuss/Plone/igib/deployigib/work/zope/src/rohberg.elasticsearc
 """
 import time
 
-esindex = 'plone2020'
-columns_to_be_exported = ["portal_type", "title", "blocks_plaintext", "manualfile__extracted"]
+esindex = 'plone2020productive'
+columns_to_be_exported = [
+    "portal_type",
+    "title",
+    "blocks_plaintext",
+    "manualfile__extracted"
+]
 es_export_file = 'export_elasticsearch_data.csv'
 
 
@@ -21,7 +26,7 @@ def main():
         import pandas
 
     except ImportError as error:
-        print("\nImportError:", error)
+        print(error)
         print("Please use 'pip' to install the necessary packages.")
         quit()
 
@@ -35,11 +40,24 @@ def main():
     ELASTICSEARCH DOCUMENTS
     """
     # total num of Elasticsearch documents to get with API call
-    total_docs = 20
+    total_docs = 10000
+    # Take the user's parameters and put them into a
+    # Python dictionary structured as an Elasticsearch query:
+    query_body = {
+        "query": {
+            "bool": {
+                "must": {
+                    "match": {      
+                        "portal_type": 'Manual'
+                    }
+                }
+            }
+        }
+    }
     print("\nMake API call to Elasticsearch for", total_docs, "documents.")
     response = elastic_client.search(
         index=esindex,
-        body={},
+        body=query_body,
         size=total_docs
     )
 
