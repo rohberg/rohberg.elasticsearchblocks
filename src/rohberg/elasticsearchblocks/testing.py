@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
-from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
+from plone.app.robotframework.testing import PLONE_ROBOT_FIXTURE, REMOTE_LIBRARY_BUNDLE_FIXTURE, WSGI_SERVER_SINGLE_THREADED_FIXTURE
 from plone.app.testing import (
     applyProfile,
     FunctionalTesting,
     IntegrationTesting,
     PloneSandboxLayer,
 )
-from plone.testing import z2
 
 import rohberg.elasticsearchblocks
 
@@ -46,8 +45,9 @@ ROHBERG_ELASTICSEARCHBLOCKS_FUNCTIONAL_TESTING = FunctionalTesting(
 ROHBERG_ELASTICSEARCHBLOCKS_ACCEPTANCE_TESTING = FunctionalTesting(
     bases=(
         ROHBERG_ELASTICSEARCHBLOCKS_FIXTURE,
+        PLONE_ROBOT_FIXTURE,
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE,
+        WSGI_SERVER_SINGLE_THREADED_FIXTURE,
     ),
     name='RohbergElasticsearchblocksLayer:AcceptanceTesting',
 )
