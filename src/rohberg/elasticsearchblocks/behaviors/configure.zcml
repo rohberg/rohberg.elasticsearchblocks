@@ -16,14 +16,4 @@
         marker=".elastic_search_blocks.IElasticSearchBlocksMarker"
         />
 
-    <plone:behavior
-        name="rohberg.elasticsearchblocks.manualfields"
-        title="ElasticSearchBlocks"
-        description="This behavior provides..."
-        provides=".manualfields.IElasticSearchBlocks"
-        factory=".manualfields.ElasticSearchBlocks"
-        marker=".manualfields.IElasticSearchBlocksMarker"
-        />
-
-
 </configure>

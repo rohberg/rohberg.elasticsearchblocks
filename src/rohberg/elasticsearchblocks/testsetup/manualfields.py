@@ -21,13 +21,15 @@ class IManualfields(model.Schema):
 
     informationtype = schema.Set(
         title=_("Informationstyp"),
-        value_type=schema.Choice(values=["Manual", "Reference", "Release Note"]),
+        value_type=schema.Choice(
+            vocabulary="rohberg.elasticsearchblock.informationtype"
+        ),
         required=False,
     )
 
     manualfile = NamedBlobFile(
-        title=_("Manual hochladen"),
-        description=_("Das Format ist idealerweise PDF."),
+        title=_("Upload Manual"),
+        description=_("PDF recommended."),
         required=False,
     )
     manualfilecontent = schema.TextLine(
@@ -38,30 +40,3 @@ class IManualfields(model.Schema):
         missing_value="",
     )
     directives.omitted("manualfilecontent")
-
-
-@implementer(IManualfields)
-@adapter(IManualfieldsMarker)
-class Manualfields(object):
-    def __init__(self, context):
-        self.context = context
-
-    @property
-    def informationtype(self):
-        if safe_hasattr(self.context, "informationtype"):
-            return self.context.informationtype
-        return None
-
-    @informationtype.setter
-    def informationtype(self, value):
-        self.context.informationtype = value
-
-    @property
-    def manualfile(self):
-        if safe_hasattr(self.context, "manualfile"):
-            return self.context.manualfile
-        return None
-
-    @manualfile.setter
-    def manualfile(self, value):
-        self.context.manualfile = value
