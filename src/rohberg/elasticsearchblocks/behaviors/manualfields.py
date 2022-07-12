@@ -6,7 +6,7 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from Products.CMFPlone.utils import safe_hasattr
-from rohberg.igib import _
+from rohberg.elasticsearchblocks import _
 from zope.component import adapter
 from zope.interface import implementer, Interface, provider
 
@@ -21,7 +21,7 @@ class IManualfields(model.Schema):
 
     informationtype = schema.Set(
         title=_("Informationstyp"),
-        value_type=schema.Choice(vocabulary="igib.informationtypeneu"),
+        value_type=schema.Choice(values=["Manual", "Reference", "Release Note"]),
         required=False,
     )
 
