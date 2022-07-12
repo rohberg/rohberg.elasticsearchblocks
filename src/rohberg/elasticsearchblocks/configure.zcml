@@ -35,6 +35,15 @@
       post_handler=".setuphandlers.uninstall"
       />
 
+  <genericsetup:registerProfile
+      name="testing"
+      title="elasticsearchblocks testing profile"
+      description="Applies behavior manualfields"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/testing"
+      post_handler=".setuphandlers.post_install_testing"
+      />
+
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="rohberg.elasticsearchblocks-hiddenprofiles"
