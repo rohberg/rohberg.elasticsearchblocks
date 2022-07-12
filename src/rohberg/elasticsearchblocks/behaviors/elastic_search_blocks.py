@@ -5,7 +5,6 @@ from plone import schema
 from plone.autoform import directives
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
-from Products.CMFPlone.utils import safe_hasattr
 from zope.component import adapter
 from zope.interface import Interface
 from zope.interface import implementer
@@ -21,15 +20,12 @@ class IElasticSearchBlocksMarker(Interface):
 
 @provider(IFormFieldProvider)
 class IElasticSearchBlocks(model.Schema):
-    """
-    """
+    """ """
 
-    directives.read_permission(blocks_plaintext='cmf.ManagePortal')
-    directives.write_permission(blocks_plaintext='cmf.ManagePortal')
+    directives.read_permission(blocks_plaintext="cmf.ManagePortal")
+    directives.write_permission(blocks_plaintext="cmf.ManagePortal")
     blocks_plaintext = schema.TextLine(
-        title=_(u'Blocks content in plain text'),
-        required=False,
-        default=""
+        title=_("Blocks content in plain text"), required=False, default=""
     )
 
 
@@ -45,17 +41,13 @@ def _extract_text(block):
     #             result = " ".join((result, text))
     #     else:
     #         result = " ".join((result, text))
-    
+
     # Slate
     if block.get("plaintext", ""):
         result = block.get("plaintext")
     elif block["@type"] == "columnsBlock":
         columns = block["data"]["blocks"]
-        result = "  ".join(
-            [
-                getBlocksText(columns[clm]['blocks'])
-                for clm in columns
-            ])
+        result = "  ".join([getBlocksText(columns[clm]["blocks"]) for clm in columns])
     return result
 
 
