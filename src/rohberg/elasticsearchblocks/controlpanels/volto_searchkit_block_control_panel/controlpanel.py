@@ -13,14 +13,35 @@ from zope.interface import Interface
 
 
 class IVoltoSearchkitBlockControlPanel(Interface):
-    myfield_name = schema.TextLine(
+    testsearch_elasticsearch_url = schema.TextLine(
         title=_(
-            "This is an example field for this control panel",
+            "elasticsearch url",
         ),
-        description=_(
-            "",
+        default="https://localhost:9200",
+        required=False,
+        readonly=False,
+    )
+    testsearch_elasticsearch_index = schema.TextLine(
+        title=_(
+            "elasticsearch index",
         ),
-        default="",
+        default="plone2020",
+        required=False,
+        readonly=False,
+    )
+    testsearch_backend = schema.TextLine(
+        title=_(
+            "backend",
+        ),
+        default="http://127.0.0.1:8080/Plone",
+        required=False,
+        readonly=False,
+    )
+    testsearch_frontend = schema.TextLine(
+        title=_(
+            "frontend",
+        ),
+        default="http://myproject.example.com/",
         required=False,
         readonly=False,
     )
@@ -35,7 +56,6 @@ class VoltoSearchkitBlockControlPanel(RegistryEditForm):
 VoltoSearchkitBlockControlPanelView = layout.wrap_form(
     VoltoSearchkitBlockControlPanel, ControlPanelFormWrapper
 )
-
 
 
 @adapter(Interface, IRohbergElasticsearchblocksLayer)
