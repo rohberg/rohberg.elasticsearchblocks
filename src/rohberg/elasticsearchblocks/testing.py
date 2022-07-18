@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
-from plone.app.robotframework.testing import PLONE_ROBOT_FIXTURE, REMOTE_LIBRARY_BUNDLE_FIXTURE, WSGI_SERVER_SINGLE_THREADED_FIXTURE
+from plone.app.robotframework.testing import (
+    PLONE_ROBOT_FIXTURE,
+    REMOTE_LIBRARY_BUNDLE_FIXTURE,
+    WSGI_SERVER_SINGLE_THREADED_FIXTURE,
+)
 from plone.app.testing import (
     applyProfile,
     FunctionalTesting,

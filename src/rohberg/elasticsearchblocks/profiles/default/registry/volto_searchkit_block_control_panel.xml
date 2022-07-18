@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<registry
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="rohberg.elasticsearchblocks">
+
+<!-- -*- extra stuff goes here -*- -->
+
+  <records interface="rohberg.elasticsearchblocks.controlpanels.volto_searchkit_block_control_panel.controlpanel.IVoltoSearchkitBlockControlPanel"
+           prefix="rohberg.elasticsearchblocks.volto_searchkit_block_control_panel" />
+
+
+</registry>

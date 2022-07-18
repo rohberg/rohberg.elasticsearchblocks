@@ -5,6 +5,7 @@ python /Users/katjasuss/Plone/igib/deployigib/work/zope/src/rohberg.elasticsearc
 """
 import time
 
+
 esindex = 'plone2020productive'
 columns_to_be_exported = [
     "portal_type",

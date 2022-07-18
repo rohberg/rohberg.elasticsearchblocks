@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<object name="portal_controlpanel" xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="rohberg.elasticsearchblocks">
+
+    <!-- -*- extra stuff goes here -*- -->
+
+  <configlet
+      i18n:attributes="title"
+      title="Volto Searchkit Block Control Panel"
+      action_id="volto_searchkit_block_control_panel-controlpanel"
+      appId="volto_searchkit_block_control_panel-controlpanel"
+      category="Products"
+      condition_expr=""
+      icon_expr=""
+      url_expr="string:${portal_url}/@@volto_searchkit_block_control_panel-controlpanel"
+      visible="True">
+    <permission>Manage Portal</permission>
+  </configlet>
+
+
+</object>

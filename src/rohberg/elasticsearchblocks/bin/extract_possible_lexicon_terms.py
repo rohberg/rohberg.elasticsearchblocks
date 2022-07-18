@@ -6,6 +6,7 @@ python /Users/katjasuss/Plone/igib/deployigib/work/zope/src/rohberg.elasticsearc
 
 import re
 
+
 es_export_file = 'export_elasticsearch_data.csv'
 possible_lexicon_terms_file = "extract_possible_lexicon_terms.txt"
 

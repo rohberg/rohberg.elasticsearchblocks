@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from rohberg.elasticsearchblocks import _
 from plone import schema
 from plone.autoform import directives
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
+from rohberg.elasticsearchblocks import _
 from zope.component import adapter
-from zope.interface import Interface
-from zope.interface import implementer
-from zope.interface import provider
+from zope.interface import implementer, Interface, provider
 
 
 BLOCK_TYPES = ["slate", "columnsBlock"]

@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="rohberg.elasticsearchblocks">
+
+  <browser:page
+    name="volto_searchkit_block_control_panel-controlpanel"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".controlpanel.VoltoSearchkitBlockControlPanelView"
+    layer="rohberg.elasticsearchblocks.interfaces.IRohbergElasticsearchblocksLayer"
+    permission="cmf.ManagePortal"
+    />
+
+  <include package="plone.restapi"  />
+  <adapter
+    factory=".controlpanel.VoltoSearchkitBlockControlPanelConfigletPanel"
+    name="volto_searchkit_block_control_panel" />
+
+
+</configure>

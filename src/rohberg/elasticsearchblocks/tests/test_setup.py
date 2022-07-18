@@ -3,7 +3,7 @@
 from plone import api
 from plone.app.testing import setRoles, TEST_USER_ID
 from rohberg.elasticsearchblocks.testing import (
-    ROHBERG_ELASTICSEARCHBLOCKS_INTEGRATION_TESTING  # noqa: E501,
+    ROHBERG_ELASTICSEARCHBLOCKS_INTEGRATION_TESTING  # noqa: E501,,
 )
 
 import unittest

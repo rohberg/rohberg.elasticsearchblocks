@@ -2,7 +2,7 @@
 from plone.app.testing import ROBOT_TEST_LEVEL
 from plone.testing import layered
 from rohberg.elasticsearchblocks.testing import (
-    ROHBERG_ELASTICSEARCHBLOCKS_ACCEPTANCE_TESTING  # noqa: E501,
+    ROHBERG_ELASTICSEARCHBLOCKS_ACCEPTANCE_TESTING  # noqa: E501,,
 )
 
 import os
