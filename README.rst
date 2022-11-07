@@ -3,7 +3,7 @@
 rohberg.elasticsearchblocks
 ===========================
 
-Exposes field *plaintext* for indexing block text with ElasticSearch.
+Exposes field *blocks_plaintext* for indexing block text with ElasticSearch.
 
 BLOCK_TYPES = ["slate", "columnsBlock"]
 
