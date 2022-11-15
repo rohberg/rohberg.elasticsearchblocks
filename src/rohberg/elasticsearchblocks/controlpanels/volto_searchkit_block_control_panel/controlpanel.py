@@ -7,7 +7,7 @@ from plone.restapi.controlpanels import RegistryConfigletPanel
 from plone.z3cform import layout
 from rohberg.elasticsearchblocks import _
 from rohberg.elasticsearchblocks.interfaces import IRohbergElasticsearchblocksLayer
-from zope import schema
+from plone import schema
 from zope.component import adapter
 from zope.interface import Interface
 
@@ -44,6 +44,20 @@ class IVoltoSearchkitBlockControlPanel(Interface):
         default="http://myproject.example.com/",
         required=False,
         readonly=False,
+    )
+    allowed_content_types = schema.List(
+        title=_("Allowed types"),
+        value_type=schema.TextLine(),
+        required=False,
+        missing_value=[],
+        default=[],
+    )
+    allowed_review_states = schema.List(
+        title=_("Allowed states"),
+        value_type=schema.TextLine(),
+        required=False,
+        missing_value=[],
+        default=[],
     )
 
 
