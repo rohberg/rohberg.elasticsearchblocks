@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-07-12 10:30+0000\n"
+"POT-Creation-Date: 2022-11-15 07:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,22 +14,75 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../behaviors/elastic_search_blocks.py:30
+#: ../controlpanels/volto_searchkit_block_control_panel/controlpanel.py:56
+msgid "Allowed states"
+msgstr ""
+
+#: ../controlpanels/volto_searchkit_block_control_panel/controlpanel.py:49
+msgid "Allowed types"
+msgstr ""
+
+#: ../configure.zcml:47
+msgid "Applies behavior manualfields"
+msgstr ""
+
+#: ../behaviors/elastic_search_blocks.py:26
 msgid "Blocks content in plain text"
 msgstr ""
 
-#: ../configure.zcml:27
+#: ../testsetup/manualfields.py:37
+msgid "Extracted Manual PDF content"
+msgstr ""
+
+#: ../testsetup/manualfields.py:23
+msgid "Informationstyp"
+msgstr ""
+
+#: ../configure.zcml:29
 msgid "Installs the rohberg.elasticsearchblocks add-on."
 msgstr ""
 
-#: ../configure.zcml:36
+#: ../testsetup/manualfields.py:32
+msgid "PDF recommended."
+msgstr ""
+
+#: ../configure.zcml:38
 msgid "Uninstalls the rohberg.elasticsearchblocks add-on."
 msgstr ""
 
-#: ../configure.zcml:27
+#: ../testsetup/manualfields.py:31
+msgid "Upload Manual"
+msgstr ""
+
+#: ../controlpanels/volto_searchkit_block_control_panel/controlpanel.py:67
+#: ../profiles/default/controlpanel.xml
+msgid "Volto Searchkit Block Control Panel"
+msgstr ""
+
+#: ../controlpanels/volto_searchkit_block_control_panel/controlpanel.py:33
+msgid "backend"
+msgstr ""
+
+#: ../controlpanels/volto_searchkit_block_control_panel/controlpanel.py:25
+msgid "elasticsearch index"
+msgstr ""
+
+#: ../controlpanels/volto_searchkit_block_control_panel/controlpanel.py:17
+msgid "elasticsearch url"
+msgstr ""
+
+#: ../configure.zcml:47
+msgid "elasticsearchblocks testing profile"
+msgstr ""
+
+#: ../controlpanels/volto_searchkit_block_control_panel/controlpanel.py:41
+msgid "frontend"
+msgstr ""
+
+#: ../configure.zcml:29
 msgid "rohberg.elasticsearchblocks"
 msgstr ""
 
-#: ../configure.zcml:36
+#: ../configure.zcml:38
 msgid "rohberg.elasticsearchblocks (uninstall)"
 msgstr ""
