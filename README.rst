@@ -11,19 +11,7 @@ BLOCK_TYPES = ["slate", "columnsBlock"]
 Installation
 ------------
 
-Install rohberg.elasticsearchblocks by adding it to your buildout::
-
-    [buildout]
-
-    ...
-
-    eggs =
-        rohberg.elasticsearchblocks
-
-
-Run
-
-    bin/buildout
+Install rohberg.elasticsearchblocks as Plone backend add-on.
 
 
 Contribute / Support
