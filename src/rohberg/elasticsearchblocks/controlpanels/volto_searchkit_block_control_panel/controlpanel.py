@@ -3,6 +3,8 @@ from plone.app.registry.browser.controlpanel import (
     ControlPanelFormWrapper,
     RegistryEditForm,
 )
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
+from plone.autoform import directives
 from plone.restapi.controlpanels import RegistryConfigletPanel
 from plone.z3cform import layout
 from rohberg.elasticsearchblocks import _
@@ -45,6 +47,7 @@ class IVoltoSearchkitBlockControlPanel(Interface):
         required=False,
         readonly=False,
     )
+
     allowed_content_types = schema.List(
         title=_("Allowed types"),
         value_type=schema.TextLine(),
@@ -52,12 +55,23 @@ class IVoltoSearchkitBlockControlPanel(Interface):
         missing_value=[],
         default=[],
     )
+    directives.widget(
+        "allowed_content_types",
+        AjaxSelectFieldWidget,
+        vocabulary="plone.app.vocabularies.UserFriendlyTypes",
+    )
+
     allowed_review_states = schema.List(
         title=_("Allowed states"),
         value_type=schema.TextLine(),
         required=False,
         missing_value=[],
         default=[],
+    )
+    directives.widget(
+        "allowed_review_states",
+        AjaxSelectFieldWidget,
+        vocabulary="plone.app.vocabularies.WorkflowStates",
     )
 
 
