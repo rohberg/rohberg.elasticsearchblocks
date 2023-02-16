@@ -10,7 +10,7 @@
     <plone:behavior
         name="rohberg.elasticsearchblocks.elastic_search_blocks"
         title="ElasticSearchBlocks"
-        description="This behavior provides a field with plain text of blocks."
+        description="This behavior exposes plain text of blocks for indexing with Elasticsearch."
         provides=".elastic_search_blocks.IElasticSearchBlocks"
         factory=".elastic_search_blocks.ElasticSearchBlocks"
         marker=".elastic_search_blocks.IElasticSearchBlocksMarker"
