@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Installer for the rohberg.elasticsearchblocks package."""
+"""Index Plone blocks text"""
 
 from setuptools import find_packages
 from setuptools import setup
@@ -15,7 +15,7 @@ long_description = '\n\n'.join([
 setup(
     name='rohberg.elasticsearchblocks',
     version='1.0a1',
-    description="Make Volto blocks indexable with ElasticSearch",
+    description="Index Plone block text",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
     classifiers=[
@@ -23,9 +23,12 @@ setup(
         "Framework :: Plone",
         "Framework :: Plone :: Addon",
         "Framework :: Plone :: 5.2",
+        "Framework :: Plone :: 6.0",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],

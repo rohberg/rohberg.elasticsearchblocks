@@ -1,4 +1,4 @@
 Contributors
 ============
 
-- Katja Süss, k.suess@rohberg.ch
+- Katja Süss, Rohberg, @ksuess
