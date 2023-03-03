@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='rohberg.elasticsearchblocks',
-    version='1.0.0',
+    version='1.0.1.dev0',
     description="Index Plone block text",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
