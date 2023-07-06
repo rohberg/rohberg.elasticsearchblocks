@@ -5,7 +5,8 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Support also EEA accordion block (nested block)
+  [ksuess]
 
 
 1.0a1 (2023-03-03)

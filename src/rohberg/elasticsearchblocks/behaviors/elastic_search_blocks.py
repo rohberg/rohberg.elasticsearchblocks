@@ -9,7 +9,7 @@ from zope.component import adapter
 from zope.interface import implementer, Interface, provider
 
 
-BLOCK_TYPES = ["slate", "columnsBlock"]
+BLOCK_TYPES = ["slate", "columnsBlock", "accordion"]
 
 
 class IElasticSearchBlocksMarker(Interface):
@@ -42,10 +42,13 @@ def _extract_text(block):
 
     # Slate
     if block.get("plaintext", ""):
-        result = block.get("plaintext")
-    elif block["@type"] == "columnsBlock":
-        columns = block["data"]["blocks"]
-        result = "  ".join([getBlocksText(columns[clm]["blocks"]) for clm in columns])
+        return block.get("plaintext")
+    toplevelblocks = block.get("data", None).get("blocks", None) if block.get("data", None) else None
+    if toplevelblocks:
+        result = " ".join([" ".join([
+            toplevelblocks[blockid].get("title", ""),
+            getBlocksText(toplevelblocks[blockid]["blocks"])
+            ]) for blockid in toplevelblocks])
     return result
 
 
